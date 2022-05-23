@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Slider from 'rc-slider';
 import Icon from './Icon';
+import { getLocale } from './utils';
 
 const maxValue = 1.7777;
 
@@ -8,7 +9,7 @@ export default function CropViewer(props) {
   const { min, prefixCls, value } = props;
   if (min > maxValue || Math.abs(min - maxValue) < 0.2) {
     return <div className={`${prefixCls}-scaller`}>
-      图像已缩放至最大比例，无法继续缩放。
+      {getLocale('small image', this.props.locale)}
     </div>;
   }
   return (<div className={`${prefixCls}-scaller`}>
